@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="description" content="A little web app I made just for you 💖 — with a small surprises." />
+  <title>Mi Luz ☀️🌻</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Page 1: Home -->
+  <div class="page" id="home">
+    <h1>Quick Question 👀</h1>
+    <p>I'm still wondering... do you really think you're short? 🤔</p>
+    <div class="media-tile">
+      <img class="confess-gif" src="assets/thinking.jpg" alt="thinking">
+    </div>
+    <button onclick="goToPage('warn')">No 😏</button>
+    <button onclick="goToPage('correct')">Yes 😇</button>
+  </div>
+
+  <!-- Page 2: wrong answer -->
+  <div class="page hidden" id="warn">
+    <h2>⚠️ WRONG ANSWER ⚠️<br>NOOOPE, TRY AGAIN 😂🙃🚨</h2>
+    <div class="media-tile">
+      <video id="warnVideo" autoplay loop playsinline>
+        <source src="assets/warn.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <button onclick="goToPage('home')">Go Back 🔄</button>
+  </div>
+
+  <!-- Page 2.5: correct answer -->
+  <div class="page hidden" id="correct">
+    <h2>Ohhh you accepted the truth, of course you're short. 🥺💕</h2>
+    <div class="media-tile">
+      <img class="confess-gif" src="assets/gotit.jpg" alt="gotit">
+    </div>
+    <p>I have a little gift for you for being honest 🎁</p>
+    <button onclick="goToPage('song')">Open Letter 💌</button>
+  </div>
+
+  <!-- Page 3: Song / Letter -->
+  <div class="page hidden" id="song">
+    <div class="letter">
+      <h2>Luz (Light) ☀️🌻</h2>
+    </div>
+
+    <div class="media-tile">
+      <div id="lyrics" class="lyrics" aria-live="polite"></div>
+    </div>
+
+    <button id="nextBtn" onclick="goToPage('confess')" disabled>Next →</button>
+  </div>
+
+  <!-- Page 3.5: Confession -->
+  <div class="page hidden" id="confess">
+    <h2>Confession Time 🙈</h2>
+    <p>
+      Soo… I never really asked you out <b>DIRECTLY</b> before. <br>
+      I just told you how I felt and hoped you’d get it 😅<br>
+      I’m still kinda shy to say it face-to-face…<br>
+      but at least I’m brave enough to try like this 💕
+    </p>
+    <div class="media-tile">
+      <img class="confess-gif" src="assets/look.gif" alt="looking">
+    </div>
+    <button onclick="goToPage('ask')">Okay… go on →</button>
+  </div>
+
+  <!-- Page 4: Ask-Out -->
+  <div class="page hidden" id="ask">
+    <h2>The Big Question… ❤️</h2>
+    <p>
+      It’s been 2 years since you found out my secret…<br>
+      (If you can't remember, I’ll remind you 😏. Remember the Technical Junction incident?  
+      Yeahhh, it happened 2 years ago on this very day, September 27th 2023).<br><br>
+      And I still mean it with all my heart. 💖<br>
+      Would you like to be my girlfriend? And maybe one day… my wife? 💕
+    </p>
+    <div class="media-tile">
+      <video id="bigVideo" autoplay loop playsinline>
+        <source src="assets/bigone.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <button onclick="sayYes()">Yes 💕</button>
+    <button onclick="goToPage('no')">No 😭</button>
+  </div>
+
+  <!-- Page 5: Rejection -->
+  <div class="page hidden" id="no">
+    <audio id="bruhAudio">
+      <source src="assets/bruh.m4a" type="audio/mp4">
+      Your browser does not support the audio element.
+    </audio>
+    <p>Are you suuure? Maybe you clicked wrong 😏</p>
+    <button onclick="goToPage('ask')">Try Again 🔄</button>
+    <button onclick="sayNo()">Yes, I’m sure 💔</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
